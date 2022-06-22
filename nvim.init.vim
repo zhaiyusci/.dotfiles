@@ -22,6 +22,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-signify'
 Plug 'tommason14/lammps.vim'
 Plug 'ollykel/v-vim'
+Plug 'luukvbaal/nnn.nvim'
 call plug#end()
 
 " Use Vim settings, rather than Vi settings (much better!).
@@ -394,3 +395,6 @@ function! Formatonsave()
 endfunction
 autocmd BufWritePre *.h,*hh,*.c,*.cc,*.cxx,*.cpp call Formatonsave()
 
+lua << EOF
+require("nnn").setup()
+EOF
