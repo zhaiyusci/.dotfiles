@@ -2,7 +2,6 @@
   "clangd.fallbackFlags": [
     "-xc++"
   ],
-  "coc.preferences.jumpCommand": "tabe",
   "Lua.telemetry.enable": false,
   "julia.trace.server": "verbose",
   "languageserver": {
