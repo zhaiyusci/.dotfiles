@@ -395,6 +395,8 @@ function! Formatonsave()
 endfunction
 autocmd BufWritePre *.h,*hh,*.c,*.cc,*.cxx,*.cpp call Formatonsave()
 
+tnoremap <Esc> <C-\><C-n>
+
 lua << EOF
 require("nnn").setup()
 EOF
