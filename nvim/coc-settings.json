@@ -15,5 +15,6 @@
         ".git/"
       ]
     }
-  }
+  },
+  "sumneko-lua.enableNvimLuaDev": true
 }
