@@ -1,7 +1,8 @@
-local opt=vim.opt
-local keymap=vim.keymap
-local g=vim.g
-local cmd=vim.cmd
+local opt = vim.opt
+local keymap = vim.keymap
+local g = vim.g
+local cmd = vim.cmd
+local api = vim.api
 
 --Language settings
 opt.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
@@ -17,7 +18,7 @@ opt.mouse = ""
 local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 local install_plugins = false
 
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
+if vim.fn.empty(vim.fn.glob(install_path, 0, 0, 0)) > 0 then
   print('Installing packer...')
   local packer_url = 'https://github.com/wbthomason/packer.nvim'
   vim.fn.system({ 'git', 'clone', '--depth', '1', packer_url, install_path })
@@ -42,6 +43,7 @@ require('packer').startup(function(use)
   use 'tommason14/lammps.vim'
   use 'ollykel/v-vim'
   use 'luukvbaal/nnn.nvim'
+  use 'lambdalisue/suda.vim'
 
   if install_plugins then
     require('packer').sync()
@@ -84,3 +86,43 @@ g.onedark_termcolors = 256
 opt.termguicolors = true
 
 cmd("colorscheme onedark")
+
+keymap.set("n", "<F3>", ":set nu! <CR>", { desc = "Toggle line number.", silent = true })
+keymap.set("n", "<F4>", ":set rnu! <CR>", { desc = "Toggle relative line number.", silent = true })
+keymap.set("n", "<F5>", ":set hlsearch! <CR>", { desc = "Toggle highlight search.", silent = true })
+keymap.set("n", "<F6>", ":set wrap! <CR>", { desc = "Toggle wrap lines.", silent = true })
+keymap.set("n", "<F7>", ":set spell! <CR>", { desc = "Toggle spell check.", silent = true })
+keymap.set("", "j", "gj", { silent = true })
+keymap.set("", "k", "gk", { silent = true })
+
+keymap.set("", "<c-h>", "<c-w>h", { silent = true })
+keymap.set("", "<c-j>", "<c-w>j", { silent = true })
+keymap.set("", "<c-k>", "<c-w>k", { silent = true })
+keymap.set("", "<c-l>", "<c-w>l", { silent = true })
+
+opt.pastetoggle = "<F2>"
+
+keymap.set("n", "<leader>m",
+  function()
+    --print("Mouse" .. opt.mouse)
+    if vim.api.nvim_get_option("mouse") == "" then
+      opt.mouse = "a"
+      print("Mouse enabled.")
+    else
+      opt.mouse = ""
+      print("Mouse disabled.")
+    end
+  end,
+  { silent = true }
+)
+
+g.niji_matching_filetypes = { 'lisp', 'scheme', 'clojure', 'haskell' }
+g.NERDSpaceDelims = 1
+g.rust_recommended_style = 0
+
+g.fortran_do_enddo = 1
+g.fortran_more_precise = 1
+
+g.latex_to_unicode_auto = 1
+
+-- api.nvim_create_user_command("SaveWithSudo", ":w !sudo tee > /dev/null %:p:S", {})
