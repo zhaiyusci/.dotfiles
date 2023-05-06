@@ -2,6 +2,9 @@
   "clangd.fallbackFlags": [
     "-xc++"
   ],
+  "clangd.arguments": [
+    "--header-insertion=never"
+  ],
   "Lua.telemetry.enable": false,
   "julia.trace.server": "verbose",
   "languageserver": {

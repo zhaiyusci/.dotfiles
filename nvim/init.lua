@@ -44,6 +44,7 @@ require('packer').startup(function(use)
   use 'ollykel/v-vim'
   use 'luukvbaal/nnn.nvim'
   use 'lambdalisue/suda.vim'
+  use 'junegunn/fzf'
 
   if install_plugins then
     require('packer').sync()
