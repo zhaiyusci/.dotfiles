@@ -1,0 +1,3 @@
+alias fanqiang="/home/yuzhai/.local/bin/gost-linux-amd64-2.11.5 -L=:10808 -L http://:10809 -F socks5://yuzhai:buorw9sfzp@45.77.174.41:1234"
+alias vi=${HOME}/.local/bin/nvim.appimage
+alias icat="kitty +kitten icat"
