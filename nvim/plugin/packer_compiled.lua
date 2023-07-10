@@ -49,8 +49,8 @@ local function save_profiles(threshold)
 end
 
 time([[Luarocks path setup]], true)
-local package_path_str = "/home/yuzhai/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/yuzhai/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/yuzhai/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/yuzhai/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
-local install_cpath_pattern = "/home/yuzhai/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
+local package_path_str = "/home/zhaiyu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?.lua;/home/zhaiyu/.cache/nvim/packer_hererocks/2.1.0-beta3/share/lua/5.1/?/init.lua;/home/zhaiyu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?.lua;/home/zhaiyu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/luarocks/rocks-5.1/?/init.lua"
+local install_cpath_pattern = "/home/zhaiyu/.cache/nvim/packer_hererocks/2.1.0-beta3/lib/lua/5.1/?.so"
 if not string.find(package.path, package_path_str, 1, true) then
   package.path = package.path .. ';' .. package_path_str
 end
@@ -76,67 +76,82 @@ time([[Defining packer_plugins]], true)
 _G.packer_plugins = {
   ["coc.nvim"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/coc.nvim",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
+  },
+  fzf = {
+    loaded = true,
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
   },
   ["julia-vim"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/julia-vim",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/julia-vim",
     url = "https://github.com/JuliaEditorSupport/julia-vim"
   },
   ["lammps.vim"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/lammps.vim",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/lammps.vim",
     url = "https://github.com/tommason14/lammps.vim"
   },
   nerdcommenter = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/nerdcommenter",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/nerdcommenter",
     url = "https://github.com/preservim/nerdcommenter"
   },
   ["nnn.nvim"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/nnn.nvim",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/nnn.nvim",
     url = "https://github.com/luukvbaal/nnn.nvim"
+  },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
   },
   ["onedark.vim"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/onedark.vim",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/onedark.vim",
     url = "https://github.com/joshdick/onedark.vim"
+  },
+  ["suda.vim"] = {
+    loaded = true,
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/suda.vim",
+    url = "https://github.com/lambdalisue/suda.vim"
   },
   ["v-vim"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/v-vim",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/v-vim",
     url = "https://github.com/ollykel/v-vim"
   },
   ["vim-airline"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim-airline",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/vim-airline",
     url = "https://github.com/vim-airline/vim-airline"
   },
   ["vim-airline-themes"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/vim-airline-themes",
     url = "https://github.com/vim-airline/vim-airline-themes"
   },
   ["vim-coloresque"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim-coloresque",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/vim-coloresque",
     url = "https://github.com/gko/vim-coloresque"
   },
   ["vim-niji"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim-niji",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/vim-niji",
     url = "https://github.com/losingkeys/vim-niji"
   },
   ["vim-signify"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim-signify",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/vim-signify",
     url = "https://github.com/mhinz/vim-signify"
   },
   ["vim-surround"] = {
     loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim-surround",
+    path = "/home/zhaiyu/.local/share/nvim/site/pack/packer/start/vim-surround",
     url = "https://github.com/tpope/vim-surround"
   }
 }
