@@ -61,6 +61,7 @@ opt.showcmd = true
 opt.incsearch = true
 opt.hlsearch = false
 opt.foldmethod = "marker"
+-- opt.foldmethod = "syntax"
 keymap.set("n", "<space>", "za", { desc = "Enable folding with the spacebar." })
 
 opt.number = true

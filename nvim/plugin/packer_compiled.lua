@@ -79,6 +79,11 @@ _G.packer_plugins = {
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/coc.nvim",
     url = "https://github.com/neoclide/coc.nvim"
   },
+  fzf = {
+    loaded = true,
+    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/fzf",
+    url = "https://github.com/junegunn/fzf"
+  },
   ["julia-vim"] = {
     loaded = true,
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/julia-vim",
@@ -99,10 +104,20 @@ _G.packer_plugins = {
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/nnn.nvim",
     url = "https://github.com/luukvbaal/nnn.nvim"
   },
+  ["nvim-treesitter"] = {
+    loaded = true,
+    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/nvim-treesitter",
+    url = "https://github.com/nvim-treesitter/nvim-treesitter"
+  },
   ["onedark.vim"] = {
     loaded = true,
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/onedark.vim",
     url = "https://github.com/joshdick/onedark.vim"
+  },
+  ["suda.vim"] = {
+    loaded = true,
+    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/suda.vim",
+    url = "https://github.com/lambdalisue/suda.vim"
   },
   ["v-vim"] = {
     loaded = true,
