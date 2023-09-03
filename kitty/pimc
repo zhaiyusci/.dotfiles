@@ -1,0 +1,15 @@
+new_tab Source Code
+cd ~/Documents/pimc/src
+launch zsh
+
+new_tab Test Code
+cd ~/Documents/pimc/test
+launch zsh
+
+new_tab Build & Test
+cd ~/Documents/pimc/build
+launch zsh
+
+new_tab Playground
+cd ~/Documents/test
+launch zsh
