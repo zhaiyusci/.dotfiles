@@ -7,7 +7,7 @@ local api = vim.api
 --Language settings
 opt.fileencodings = "ucs-bom,utf-8,cp936,gb18030,big5,euc-jp,euc-kr,latin1"
 opt.encoding = "utf-8"
-opt.termencoding = "utf-8"
+-- opt.termencoding = "utf-8"
 opt.fileformat = "unix"
 
 opt.backspace = "indent,eol,start"
@@ -106,7 +106,7 @@ keymap.set("", "<c-j>", "<c-w>j", { silent = true })
 keymap.set("", "<c-k>", "<c-w>k", { silent = true })
 keymap.set("", "<c-l>", "<c-w>l", { silent = true })
 
-opt.pastetoggle = "<F2>"
+-- opt.pastetoggle = "<F2>"
 
 keymap.set("n", "<leader>m",
   function()

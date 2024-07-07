@@ -83,12 +83,14 @@ unsetopt share_history
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+alias vi=nvim
+
 # Preferred editor for local and remote sessions
 if [[ -n $SSH_CONNECTION ]]; then
-  export EDITOR='/home/yuzhai/.local/bin/nvim.appimage'
+  export EDITOR='/usr/bin/nvim'
 else
   # export EDITOR='nvim'
-  export EDITOR='/home/yuzhai/.local/bin/nvim.appimage'
+  export EDITOR='/usr/bin/nvim'
 fi
 
 # Compilation flags
@@ -102,26 +104,6 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/yuzhai/.mambaforge/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/yuzhai/.mambaforge/etc/profile.d/conda.sh" ]; then
-        . "/home/yuzhai/.mambaforge/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/yuzhai/.mambaforge/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-
-if [ -f "/home/yuzhai/.mambaforge/etc/profile.d/mamba.sh" ]; then
-    . "/home/yuzhai/.mambaforge/etc/profile.d/mamba.sh"
-fi
-# <<< conda initialize <<<
-
 
 # >>> juliaup initialize >>>
 
@@ -140,3 +122,21 @@ export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/yuzhai/.local/opt/orca_5_0_4_lin
 export MANPATH=${MANPATH}:/home/yuzhai/.local/opt/texlive/2023/texmf-dist/doc/man
 export INFOPATH=${INFORPATH}:/home/yuzhai/.local/opt/texlive/2023/texmf-dist/doc/info
 export PATH=${PATH}:/home/yuzhai/.local/opt/texlive/2023/bin/x86_64-linux
+
+export rime_frontend=fcitx5-rime
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/yuzhai/.local/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/yuzhai/.local/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/yuzhai/.local/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/yuzhai/.local/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
