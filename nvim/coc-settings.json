@@ -5,6 +5,8 @@
   "clangd.arguments": [
     "--header-insertion=never"
   ],
+  "clangd.inlayHints.enable": false,
+  "inlayHint.enable": false,
   "Lua.telemetry.enable": false,
   "julia.trace.server": "verbose",
   "languageserver": {

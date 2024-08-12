@@ -101,6 +101,7 @@ keymap.set("n", "<F6>", ":set wrap! <CR>", { desc = "Toggle wrap lines.", silent
 keymap.set("n", "<F7>", ":set spell! <CR>", { desc = "Toggle spell check.", silent = true })
 keymap.set("", "j", "gj", { silent = true })
 keymap.set("", "k", "gk", { silent = true })
+keymap.set("n", "<m-p>", "ostd::cout << __FILE__ << \" : \" << __LINE__ << std::endl;<esc>", { silent = true })
 
 keymap.set("", "<c-h>", "<c-w>h", { silent = true })
 keymap.set("", "<c-j>", "<c-w>j", { silent = true })
@@ -112,11 +113,13 @@ keymap.set("", "<c-l>", "<c-w>l", { silent = true })
 keymap.set("n", "<leader>m",
   function()
     --print("Mouse" .. opt.mouse)
-    if vim.api.nvim_get_option("mouse") == "" then
+    if api.nvim_get_option_value("mouse", {}) == "" then
       opt.mouse = "a"
+      api.nvim_set_option_value("mouse", "a", {})
       print("Mouse enabled.")
     else
-      opt.mouse = ""
+      -- opt.mouse = ""
+      api.nvim_set_option_value("mouse", "", {})
       print("Mouse disabled.")
     end
   end,
@@ -140,11 +143,11 @@ require 'nvim-treesitter.configs'.setup {
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "comment" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = false,
+  sync_install = true,
 
   -- Automatically install missing parsers when entering buffer
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = true,
+  auto_install = false,
 
   -- List of parsers to ignore installing (for "all")
   ignore_install = { "javascript" },

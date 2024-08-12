@@ -3,3 +3,4 @@
 alias icat="kitty +kitten icat"
 alias pimcsync="rsync -e 'ssh -oPubkeyAcceptedKeyTypes=+ssh-rsa' -av --delete --exclude={'.*','example','.o'} ~/pimc_zhai/ zhaiyu@162.105.22.209:~/pimc_zhai"
 alias vi=nvim
+alias hx=helix

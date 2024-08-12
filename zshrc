@@ -103,6 +103,7 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+. ~/.dotfiles/alias
 
 # >>> juliaup initialize >>>
 
@@ -139,3 +140,4 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
+export SW_PATH=/home/yuzhai/.local/opt/sw
