@@ -140,4 +140,3 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-export SW_PATH=/home/yuzhai/.local/opt/sw

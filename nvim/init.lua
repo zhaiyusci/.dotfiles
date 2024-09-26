@@ -31,8 +31,7 @@ end
 
 require('packer').startup(function(use)
   use 'preservim/nerdcommenter'
-  use 'vim-airline/vim-airline'
-  use 'vim-airline/vim-airline-themes'
+  use {'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }}
   use 'gko/vim-coloresque'
   use 'losingkeys/vim-niji'
   use 'tpope/vim-surround'
@@ -79,12 +78,7 @@ opt.expandtab = true
 -- Conquer of Completion (CoC) settings
 require("coc")
 
--- Airline settings
-opt.laststatus = 2
-g.airline_powerline_fonts = true
-opt.showmode = false
-g.airline_theme = "onedark"
-g.airline_experimental = 0
+require('lualine').setup()
 
 -- Onedark theme
 g.onedark_hide_endofbuffer = 1
