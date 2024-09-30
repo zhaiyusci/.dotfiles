@@ -120,11 +120,6 @@ _G.packer_plugins = {
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
-  ["onedark.vim"] = {
-    loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/onedark.vim",
-    url = "https://github.com/joshdick/onedark.vim"
-  },
   ["suda.vim"] = {
     loaded = true,
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/suda.vim",
@@ -134,6 +129,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/v-vim",
     url = "https://github.com/ollykel/v-vim"
+  },
+  vim = {
+    loaded = true,
+    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim",
+    url = "https://github.com/dracula/vim"
   },
   ["vim-coloresque"] = {
     loaded = true,

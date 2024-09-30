@@ -36,7 +36,8 @@ require('packer').startup(function(use)
   use 'losingkeys/vim-niji'
   use 'tpope/vim-surround'
   use 'JuliaEditorSupport/julia-vim'
-  use { 'joshdick/onedark.vim', branch = 'main' }
+  -- use { 'joshdick/onedark.vim', branch = 'main' }
+  use { 'dracula/vim', name = 'dracula' }
   use { 'neoclide/coc.nvim', branch = 'release' }
   use 'mhinz/vim-signify'
   use 'tommason14/lammps.vim'
@@ -81,12 +82,12 @@ require("coc")
 require('lualine').setup()
 
 -- Onedark theme
-g.onedark_hide_endofbuffer = 1
-g.onedark_terminal_italics = 1
-g.onedark_termcolors = 256
-opt.termguicolors = true
+-- g.onedark_hide_endofbuffer = 1
+-- g.onedark_terminal_italics = 1
+-- g.onedark_termcolors = 256
+-- opt.termguicolors = true
 
-cmd("colorscheme onedark")
+cmd("colorscheme dracula")
 
 keymap.set("n", "<F3>", ":set nu! <CR>", { desc = "Toggle line number.", silent = true })
 keymap.set("n", "<F4>", ":set rnu! <CR>", { desc = "Toggle relative line number.", silent = true })
