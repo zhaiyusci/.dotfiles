@@ -1,3 +1,21 @@
+-- Bootstrap lazy.nvim
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = "https://github.com/folke/lazy.nvim.git"
+  local out = vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=stable", lazyrepo, lazypath })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { "Failed to clone lazy.nvim:\n", "ErrorMsg" },
+      { out,                            "WarningMsg" },
+      { "\nPress any key to exit..." },
+    }, true, {})
+    vim.fn.getchar()
+    os.exit(1)
+  end
+end
+vim.opt.rtp:prepend(lazypath)
+
+
 local opt = vim.opt
 local keymap = vim.keymap
 local g = vim.g
@@ -15,46 +33,83 @@ opt.backup = false
 opt.mouse = ""
 
 
-local install_path = vim.fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-local install_plugins = false
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+-- This is also a good place to setup other settings (vim.opt)
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
-if vim.fn.empty(vim.fn.glob(install_path, 0, 0, 0)) > 0 then
-  print('Installing packer...')
-  local packer_url = 'https://github.com/wbthomason/packer.nvim'
-  vim.fn.system({ 'git', 'clone', '--depth', '1', packer_url, install_path })
-  print('Done.')
+-- Setup lazy.nvim
+require("lazy").setup({
+  spec = {
+    -- add your plugins here
+    { 'preservim/nerdcommenter' },
+    { 'nvim-lualine/lualine.nvim',   requires = { 'nvim-tree/nvim-web-devicons', opt = true } },
+    { 'gko/vim-coloresque' },
+    { 'losingkeys/vim-niji' },
+    { 'tpope/vim-surround' },
+    { 'JuliaEditorSupport/julia-vim' },
+    { 'joshdick/onedark.vim' },
+    { 'neoclide/coc.nvim',           branch = 'release' },
+    { 'mhinz/vim-signify' },
+    { 'tommason14/lammps.vim' },
+    { 'ollykel/v-vim' },
+    { 'luukvbaal/nnn.nvim' },
+    { 'lambdalisue/suda.vim' },
+    { 'junegunn/fzf' },
+    {
+      'nvim-treesitter/nvim-treesitter',
+      config = {
+        -- A list of parser names, or "all" (the five listed parsers should always be installed)
+        ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "comment" },
 
-  vim.cmd('packadd packer.nvim')
-  install_plugins = true
-end
---install_plugins = true
+        -- Install parsers synchronously (only applied to `ensure_installed`)
+        sync_install = true,
 
-require('packer').startup(function(use)
-  use 'preservim/nerdcommenter'
-  use {'nvim-lualine/lualine.nvim', requires = { 'nvim-tree/nvim-web-devicons', opt = true }}
-  use 'gko/vim-coloresque'
-  use 'losingkeys/vim-niji'
-  use 'tpope/vim-surround'
-  use 'JuliaEditorSupport/julia-vim'
-  -- use { 'joshdick/onedark.vim', branch = 'main' }
-  use { 'dracula/vim', name = 'dracula' }
-  use { 'neoclide/coc.nvim', branch = 'release' }
-  use 'mhinz/vim-signify'
-  use 'tommason14/lammps.vim'
-  use 'ollykel/v-vim'
-  use 'luukvbaal/nnn.nvim'
-  use 'lambdalisue/suda.vim'
-  use 'junegunn/fzf'
-  use {
-    'nvim-treesitter/nvim-treesitter',
-    run = ':TSUpdate'
-  }
-  use 'lervag/vimtex'
+        -- Automatically install missing parsers when entering buffer
+        -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
+        auto_install = false,
 
-  if install_plugins then
-    require('packer').sync()
-  end
-end)
+        -- List of parsers to ignore installing (for "all")
+        ignore_install = { "javascript" },
+
+        ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
+        -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
+
+        highlight = {
+          enable = true,
+
+          -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
+          -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
+          -- the name of the parser)
+          -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
+          disable = function(lang, buf)
+            local max_filesize = 100 * 1024 -- 100 KB
+            local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
+            if ok and stats and stats.size > max_filesize then
+              return true
+            end
+          end,
+
+          -- list of language that will be disabled
+          disable = { "latex" },
+
+          -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+          -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+          -- Using this option may slow down your editor, and you may see some duplicate highlights.
+          -- Instead of true it can also be a list of languages
+          additional_vim_regex_highlighting = false,
+        },
+      }
+    },
+    { 'lervag/vimtex' }
+  },
+  -- Configure any other settings here. See the documentation for more details.
+  -- colorscheme that will be used when installing plugins.
+  install = { colorscheme = { "default" } },
+  -- automatically check for plugin updates
+  checker = { enabled = false },
+})
 
 opt.history = 50
 opt.ruler = true
@@ -82,12 +137,12 @@ require("coc")
 require('lualine').setup()
 
 -- Onedark theme
--- g.onedark_hide_endofbuffer = 1
--- g.onedark_terminal_italics = 1
--- g.onedark_termcolors = 256
--- opt.termguicolors = true
+g.onedark_hide_endofbuffer = 1
+g.onedark_terminal_italics = 1
+g.onedark_termcolors = 256
+opt.termguicolors = true
 
-cmd("colorscheme dracula")
+cmd("colorscheme onedark")
 
 keymap.set("n", "<F3>", ":set nu! <CR>", { desc = "Toggle line number.", silent = true })
 keymap.set("n", "<F4>", ":set rnu! <CR>", { desc = "Toggle relative line number.", silent = true })
@@ -130,48 +185,6 @@ g.fortran_more_precise = 1
 
 g.latex_to_unicode_auto = 1
 
-opt.diffopt = {'internal', 'algorithm:minimal'}
+opt.diffopt = { 'internal', 'algorithm:minimal' }
 
 -- api.nvim_create_user_command("SaveWithSudo", ":w !sudo tee > /dev/null %:p:S", {})
-require 'nvim-treesitter.configs'.setup {
-  -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "comment" },
-
-  -- Install parsers synchronously (only applied to `ensure_installed`)
-  sync_install = true,
-
-  -- Automatically install missing parsers when entering buffer
-  -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
-  auto_install = false,
-
-  -- List of parsers to ignore installing (for "all")
-  ignore_install = { "javascript" },
-
-  ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
-  -- parser_install_dir = "/some/path/to/store/parsers", -- Remember to run vim.opt.runtimepath:append("/some/path/to/store/parsers")!
-
-  highlight = {
-    enable = true,
-
-    -- NOTE: these are the names of the parsers and not the filetype. (for example if you want to
-    -- disable highlighting for the `tex` filetype, you need to include `latex` in this list as this is
-    -- the name of the parser)
-    -- Or use a function for more flexibility, e.g. to disable slow treesitter highlight for large files
-    disable = function(lang, buf)
-      local max_filesize = 100 * 1024 -- 100 KB
-      local ok, stats = pcall(vim.loop.fs_stat, vim.api.nvim_buf_get_name(buf))
-      if ok and stats and stats.size > max_filesize then
-        return true
-      end
-    end,
-
-    -- list of language that will be disabled
-    disable = { "latex" },
-
-    -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
-    -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
-    -- Using this option may slow down your editor, and you may see some duplicate highlights.
-    -- Instead of true it can also be a list of languages
-    additional_vim_regex_highlighting = false,
-  },
-}
