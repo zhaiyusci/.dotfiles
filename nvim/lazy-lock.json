@@ -1,0 +1,19 @@
+{
+  "coc.nvim": { "branch": "release", "commit": "69b16f8651b4d92d9ea5d6b000c084f275ed7928" },
+  "fzf": { "branch": "master", "commit": "c3505858a6764193e1948fd4423b92d7b379b255" },
+  "julia-vim": { "branch": "master", "commit": "7946ce330b6287c9293aece5b14feafa1125779e" },
+  "lammps.vim": { "branch": "master", "commit": "60ed40f61227124d8f378305ea7b60bd634f7034" },
+  "lazy.nvim": { "branch": "main", "commit": "1159bdccd8910a0fd0914b24d6c3d186689023d9" },
+  "lualine.nvim": { "branch": "master", "commit": "b431d228b7bbcdaea818bdc3e25b8cdbe861f056" },
+  "nerdcommenter": { "branch": "master", "commit": "3f860f2d981547c18f2c9599e3c358ea488c3be4" },
+  "nnn.nvim": { "branch": "master", "commit": "662034c73718885ee599ad9fb193ab1ede70fbcb" },
+  "nvim-treesitter": { "branch": "master", "commit": "45e0d66246f31306d890b91301993fa1623e79f1" },
+  "onedark.vim": { "branch": "main", "commit": "390b893d361c356ac1b00778d849815f2aa44ae4" },
+  "suda.vim": { "branch": "master", "commit": "b97fab52f9cdeabe2bbb5eb98d82356899f30829" },
+  "v-vim": { "branch": "master", "commit": "1dc1388bafb89072f8349dbd96f9462ae22237cb" },
+  "vim-coloresque": { "branch": "master", "commit": "e12a5007068e74c8ffe5b1da91c25989de9c2081" },
+  "vim-niji": { "branch": "master", "commit": "444123706d89685fe8a2fd2a7d21e0dd69500684" },
+  "vim-signify": { "branch": "master", "commit": "8670143f9e12ed1cd3c9b2c54f345cdd9a4baac3" },
+  "vim-surround": { "branch": "master", "commit": "3d188ed2113431cf8dac77be61b842acb64433d9" },
+  "vimtex": { "branch": "master", "commit": "fcbaf66887bd19f5d973406848cf2a5ac46bd65e" }
+}

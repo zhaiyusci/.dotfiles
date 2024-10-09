@@ -120,6 +120,11 @@ _G.packer_plugins = {
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/opt/nvim-web-devicons",
     url = "https://github.com/nvim-tree/nvim-web-devicons"
   },
+  onehalf = {
+    loaded = true,
+    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/onehalf/vim",
+    url = "https://github.com/sonph/onehalf"
+  },
   ["suda.vim"] = {
     loaded = true,
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/suda.vim",
@@ -129,11 +134,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/v-vim",
     url = "https://github.com/ollykel/v-vim"
-  },
-  vim = {
-    loaded = true,
-    path = "/home/yuzhai/.local/share/nvim/site/pack/packer/start/vim",
-    url = "https://github.com/dracula/vim"
   },
   ["vim-coloresque"] = {
     loaded = true,
@@ -163,6 +163,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Runtimepath customization
+time([[Runtimepath customization]], true)
+vim.o.runtimepath = vim.o.runtimepath .. ",/home/yuzhai/.local/share/nvim/site/pack/packer/start/onehalf/vim"
+time([[Runtimepath customization]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then
