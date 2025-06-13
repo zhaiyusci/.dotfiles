@@ -49,14 +49,34 @@ require("lazy").setup({
     { 'losingkeys/vim-niji' },
     { 'tpope/vim-surround' },
     { 'JuliaEditorSupport/julia-vim' },
-    { 'joshdick/onedark.vim' },
-    { 'neoclide/coc.nvim',           branch = 'release' },
+    -- { 'zhaiyusci/onedark.vim' },
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+    { 'neoclide/coc.nvim',    branch = 'release' },
     { 'mhinz/vim-signify' },
     { 'tommason14/lammps.vim' },
     { 'ollykel/v-vim' },
     { 'luukvbaal/nnn.nvim' },
     { 'lambdalisue/suda.vim' },
     { 'junegunn/fzf' },
+    {
+      'cameron-wags/rainbow_csv.nvim',
+      config = true,
+      ft = {
+        'csv',
+        'tsv',
+        'csv_semicolon',
+        'csv_whitespace',
+        'csv_pipe',
+        'rfc_csv',
+        'rfc_semicolon'
+      },
+      cmd = {
+        'RainbowDelim',
+        'RainbowDelimSimple',
+        'RainbowDelimQuoted',
+        'RainbowMultiDelim'
+      }
+    },
     {
       'nvim-treesitter/nvim-treesitter',
       config = {
@@ -176,12 +196,14 @@ require('lualine').setup {
 }
 
 -- Onedark theme
-g.onedark_hide_endofbuffer = 1
-g.onedark_terminal_italics = 1
-g.onedark_termcolors = 256
-opt.termguicolors = true
+-- g.onedark_hide_endofbuffer = 1
+-- g.onedark_terminal_italics = 1
+-- g.onedark_termcolors = 256
+-- opt.termguicolors = true
 
-cmd("colorscheme onedark")
+-- cmd("colorscheme onedark")
+
+vim.cmd.colorscheme "catppuccin-macchiato"
 
 keymap.set("n", "<F3>", ":set nu! <CR>", { desc = "Toggle line number.", silent = true })
 keymap.set("n", "<F4>", ":set rnu! <CR>", { desc = "Toggle relative line number.", silent = true })

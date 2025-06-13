@@ -1,8 +1,5 @@
 # BEGIN_KITTY_THEME
-# One Dark
-# include current-theme.conf
-# include dracula.conf
-# include onehalf-dark.conf
+# Catppuccin-Frappe
 include current-theme.conf
 # END_KITTY_THEME
 #
