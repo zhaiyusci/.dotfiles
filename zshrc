@@ -115,13 +115,13 @@ export PATH
 # <<< juliaup initialize <<<
 #
 # ORCA
-export PATH=${PATH}:/home/yuzhai/.local/opt/orca_5_0_4_linux_x86-64_shared_openmpi411
-export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/yuzhai/.local/opt/orca_5_0_4_linux_x86-64_shared_openmpi411
+export PATH=${PATH}:/home/yuzhai/Workspace/orca_6_0_0
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/yuzhai/Workspace/orca_6_0_0
 
 # Texlive
-export MANPATH=${MANPATH}:/home/yuzhai/.local/opt/texlive/2023/texmf-dist/doc/man
-export INFOPATH=${INFORPATH}:/home/yuzhai/.local/opt/texlive/2023/texmf-dist/doc/info
-export PATH=${PATH}:/home/yuzhai/.local/opt/texlive/2023/bin/x86_64-linux
+export MANPATH=${MANPATH}:/home/yuzhai/.local/opt/texlive/2025/texmf-dist/doc/man
+export INFOPATH=${INFORPATH}:/home/yuzhai/.local/opt/texlive/2025/texmf-dist/doc/info
+export PATH=${PATH}:/home/yuzhai/.local/opt/texlive/2025/bin/x86_64-linux
 
 export rime_frontend=fcitx5-rime
 
