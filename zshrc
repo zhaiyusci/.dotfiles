@@ -118,24 +118,41 @@ export PATH
 export PATH=${PATH}:/home/yuzhai/Workspace/orca_6_0_0
 export LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:/home/yuzhai/Workspace/orca_6_0_0
 
-# Texlive
-export MANPATH=${MANPATH}:/home/yuzhai/.local/opt/texlive/2025/texmf-dist/doc/man
-export INFOPATH=${INFORPATH}:/home/yuzhai/.local/opt/texlive/2025/texmf-dist/doc/info
-export PATH=${PATH}:/home/yuzhai/.local/opt/texlive/2025/bin/x86_64-linux
-
 export rime_frontend=fcitx5-rime
+
+function y() {
+  local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd"
+  rm -f -- "$tmp"
+}
+
+
+# >>> mamba initialize >>>
+# !! Contents within this block are managed by 'mamba shell init' !!
+export MAMBA_EXE='/home/yuzhai/.local/opt/miniforge3/bin/mamba';
+export MAMBA_ROOT_PREFIX='/home/yuzhai/.local/opt/miniforge3';
+__mamba_setup="$("$MAMBA_EXE" shell hook --shell zsh --root-prefix "$MAMBA_ROOT_PREFIX" 2> /dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__mamba_setup"
+else
+  alias mamba="$MAMBA_EXE"  # Fallback on help from mamba activate
+fi
+unset __mamba_setup
+# <<< mamba initialize <<<
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/yuzhai/.local/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/yuzhai/.local/opt/miniforge3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
+  eval "$__conda_setup"
 else
-    if [ -f "/home/yuzhai/.local/opt/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/yuzhai/.local/opt/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/yuzhai/.local/opt/miniconda3/bin:$PATH"
-    fi
+  if [ -f "/home/yuzhai/.local/opt/miniforge3/etc/profile.d/conda.sh" ]; then
+    . "/home/yuzhai/.local/opt/miniforge3/etc/profile.d/conda.sh"
+  else
+    export PATH="/home/yuzhai/.local/opt/miniforge3/bin:$PATH"
+  fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<

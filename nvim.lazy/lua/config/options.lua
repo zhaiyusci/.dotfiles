@@ -15,3 +15,6 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
     vim.opt_local.conceallevel = 0
   end,
 })
+
+vim.opt.undofile = false
+vim.b.minipairs_disable = true
